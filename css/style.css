@@ -1,0 +1,2194 @@
+/* ==========================================================
+   SIMEP - SISTEMA DE MATRÍCULAS
+   TELA DE LOGIN
+
+   DESKTOP ESTÁVEL + MOBILE RESPONSIVO
+   ========================================================== */
+
+
+/* ==========================================================
+   VARIÁVEIS
+   ========================================================== */
+
+:root {
+  --blue: #0755d9;
+  --blue-dark: #082f76;
+  --blue-footer: #003d8f;
+
+  --yellow: #ffbb00;
+  --red: #ef2d32;
+  --green: #08a34a;
+
+  --text: #112b61;
+  --text-soft: #5b6886;
+
+  --border: #cbd4e4;
+
+  --white: #ffffff;
+}
+
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: 16px;
+}
+
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+
+body {
+  min-height: 100vh;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: var(--text);
+
+  background: #dfeefa;
+}
+
+
+button,
+input {
+  font: inherit;
+}
+
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ==========================================================
+   WRAPPER PRINCIPAL
+   ========================================================== */
+
+.page-wrapper {
+  width: calc(100% - 20px);
+
+  max-width: 1600px;
+
+  height: calc(100vh - 20px);
+
+  max-height: 900px;
+
+  min-height: 680px;
+
+  margin: 10px auto;
+
+  background: #f8fbff;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 0 0 1px rgba(17, 57, 112, 0.08),
+    0 10px 35px rgba(12, 57, 110, 0.08);
+}
+
+
+/* ==========================================================
+   CONTAINER PRINCIPAL
+   ========================================================== */
+
+.login-container {
+  width: 100%;
+
+  height: calc(100% - 64px);
+
+  display: grid;
+
+  grid-template-columns:
+    50% 50%;
+}
+
+
+/* ==========================================================
+   PAINEL ESQUERDO
+   ========================================================== */
+
+.login-info {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+
+  /*
+     1ª linha = logo/texto
+     2ª linha = ilustração
+     3ª linha = benefícios
+  */
+
+  grid-template-rows:
+    auto 1fr 145px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(135deg,
+      #edf7ff 0%,
+      #ffffff 70%,
+      #f5faff 100%);
+}
+
+
+/* ==========================================================
+   DECORAÇÃO
+   ========================================================== */
+
+.login-info::before {
+  content: "";
+
+  position: absolute;
+
+  top: -120px;
+  left: -100px;
+
+  width: 400px;
+  height: 400px;
+
+  background:
+    radial-gradient(circle,
+      rgba(54, 148, 230, 0.13) 3px,
+      transparent 4px);
+
+  background-size:
+    28px 28px;
+
+  opacity: 0.7;
+
+  pointer-events: none;
+}
+
+
+.login-info::after {
+  content: "";
+
+  position: absolute;
+
+  top: -300px;
+  left: -320px;
+
+  width: 650px;
+  height: 650px;
+
+  transform: rotate(45deg);
+
+  background:
+    linear-gradient(135deg,
+      rgba(215, 237, 255, 0.38),
+      transparent);
+
+  pointer-events: none;
+}
+
+
+/* ==========================================================
+   BLOCO LOGO DESKTOP
+
+   ALTERAÇÃO:
+   aumentei o espaço e aproximei da ilustração
+   ========================================================== */
+
+.desktop-brand {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  padding:
+    8px 30px 4px;
+}
+
+
+/* ==========================================================
+   LOGO DESKTOP
+
+   ALTERAÇÃO PRINCIPAL:
+   LOGO MAIOR
+   ========================================================== */
+
+.desktop-logo {
+  width: 500px;
+
+  height: 300px;
+
+  max-width: 78%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* ==========================================================
+   LINHA COLORIDA
+   ========================================================== */
+
+.color-line {
+  width: 410px;
+
+  max-width: 67%;
+
+  height: 5px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  margin-top: 0;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+}
+
+
+.color-line span:nth-child(1) {
+  background: var(--blue);
+}
+
+
+.color-line span:nth-child(2) {
+  background: var(--yellow);
+}
+
+
+.color-line span:nth-child(3) {
+  background: var(--red);
+}
+
+
+.color-line span:nth-child(4) {
+  background: var(--green);
+}
+
+
+/* ==========================================================
+   TEXTO INSTITUCIONAL
+
+   ALTERAÇÃO:
+   menos espaço abaixo da logo
+   ========================================================== */
+
+.desktop-description {
+  margin-top: 10px;
+
+  margin-bottom: 0;
+
+  text-align: center;
+
+  color: #14346e;
+
+  font-size: 15px;
+
+  line-height: 1.4;
+}
+
+
+/* ==========================================================
+   ILUSTRAÇÃO DESKTOP
+
+   ALTERAÇÃO:
+   sobe a ilustração para aproximar do texto
+   ========================================================== */
+
+.desktop-illustration {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  min-height: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-end;
+
+  overflow: hidden;
+
+  padding-top: 0;
+}
+
+
+.desktop-illustration img {
+  width: 720px;
+
+  max-width: 94%;
+
+  height: auto;
+
+  max-height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  object-position:
+    center bottom;
+}
+
+
+/* ==========================================================
+   BENEFÍCIOS DESKTOP
+   ========================================================== */
+
+.benefits {
+  background:
+    linear-gradient(90deg,
+      #0754a8,
+      #00377e);
+}
+
+
+.benefits-desktop {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+
+  height: 145px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  align-items: center;
+
+  padding:
+    12px 25px;
+
+  background:
+    linear-gradient(90deg,
+      #0754a8,
+      #00377e);
+}
+
+
+.benefit-item {
+  position: relative;
+
+  text-align: center;
+
+  color: var(--white);
+
+  padding:
+    0 10px;
+}
+
+
+.benefit-item:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  top: 20%;
+  right: 0;
+
+  width: 1px;
+
+  height: 65%;
+
+  background:
+    rgba(255, 255, 255, 0.42);
+}
+
+
+/* ==========================================================
+   ÍCONES BENEFÍCIOS
+   ========================================================== */
+
+.benefit-icon {
+  width: 44px;
+  height: 44px;
+
+  margin:
+    0 auto 6px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 50%;
+
+  color: white;
+}
+
+
+.benefit-icon svg {
+  width: 24px;
+  height: 24px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+
+.benefit-icon.blue {
+  background: #1267e8;
+}
+
+
+.benefit-icon.yellow {
+  background: #ffbd00;
+}
+
+
+.benefit-icon.red {
+  background: #ff3035;
+}
+
+
+.benefit-icon.green {
+  background: #09a54c;
+}
+
+
+.benefit-item h3 {
+  margin-bottom: 4px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+
+.benefit-item p {
+  font-size: 10px;
+
+  line-height: 1.35;
+}
+
+
+/* ==========================================================
+   LADO DIREITO
+   ========================================================== */
+
+.login-form-area {
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    25px 40px;
+
+  background:
+    linear-gradient(180deg,
+      #edf7ff,
+      #f4faff);
+}
+
+
+/* ==========================================================
+   CARD LOGIN
+   ========================================================== */
+
+.login-card {
+  width: 590px;
+
+  max-width: 100%;
+
+  padding:
+    30px 42px;
+
+  background:
+    rgba(255, 255, 255, 0.98);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 30px rgba(31, 68, 115, 0.06);
+}
+
+
+/* ==========================================================
+   LOGO MOBILE
+   ========================================================== */
+
+.mobile-brand {
+  display: none;
+}
+
+
+/* ==========================================================
+   CABEÇALHO
+   ========================================================== */
+
+.form-header {
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+
+.form-header h1 {
+  margin-bottom: 6px;
+
+  color: #07377d;
+
+  font-size: 31px;
+
+  line-height: 1.2;
+
+  font-weight: 800;
+}
+
+
+.form-header p {
+  color: var(--text-soft);
+
+  font-size: 14px;
+}
+
+
+/* ==========================================================
+   ABAS
+   ========================================================== */
+
+.login-tabs {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  margin-bottom: 20px;
+
+  border-bottom:
+    1px solid #d9dfeb;
+}
+
+
+.login-tab {
+  position: relative;
+
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  padding:
+    8px 5px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #53617e;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+.login-tab::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -1px;
+
+  height: 3px;
+
+  background: transparent;
+}
+
+
+.login-tab svg {
+  width: 21px;
+  height: 21px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+
+.login-tab.active {
+  color: var(--blue);
+}
+
+
+.login-tab.active::after {
+  background: var(--blue);
+}
+
+
+/* ==========================================================
+   FORMULÁRIO
+   ========================================================== */
+
+.form-group {
+  margin-bottom: 13px;
+}
+
+
+.form-group>label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #112e63;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+/* ==========================================================
+   INPUT
+   ========================================================== */
+
+.input-wrapper {
+  position: relative;
+
+  width: 100%;
+}
+
+
+.input-wrapper input {
+  width: 100%;
+
+  height: 52px;
+
+  padding:
+    0 48px;
+
+  border:
+    1px solid #bfc9db;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  color: #22375f;
+
+  background: white;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.input-wrapper input::placeholder {
+  color: #7886a4;
+}
+
+
+.input-wrapper input:focus {
+  border-color: #1260dc;
+
+  box-shadow:
+    0 0 0 3px rgba(18, 96, 220, 0.10);
+}
+
+
+/* ==========================================================
+   ÍCONES INPUT
+   ========================================================== */
+
+.input-icon {
+  position: absolute;
+
+  left: 16px;
+
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  width: 21px;
+  height: 21px;
+
+  fill: none;
+
+  stroke: #75829e;
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  pointer-events: none;
+}
+
+
+.password-wrapper input {
+  padding-right: 52px;
+}
+
+
+/* ==========================================================
+   MOSTRAR SENHA
+   ========================================================== */
+
+.show-password {
+  position: absolute;
+
+  top: 50%;
+  right: 8px;
+
+  transform:
+    translateY(-50%);
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border: none;
+
+  background: transparent;
+
+  color: #667493;
+
+  cursor: pointer;
+}
+
+
+.show-password svg {
+  width: 23px;
+  height: 23px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+
+/* ==========================================================
+   LEMBRAR-ME
+   ========================================================== */
+
+.form-options {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin:
+    4px 0 17px;
+}
+
+
+.remember {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #19315e;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+
+.remember input {
+  position: absolute;
+
+  opacity: 0;
+}
+
+
+.custom-checkbox {
+  width: 19px;
+  height: 19px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1.5px solid #8491ab;
+
+  border-radius: 4px;
+
+  background: white;
+}
+
+
+.remember input:checked+.custom-checkbox {
+  background: var(--blue);
+
+  border-color: var(--blue);
+}
+
+
+.remember input:checked+.custom-checkbox::after {
+  content: "✓";
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+
+.form-options a {
+  color: var(--blue);
+
+  font-size: 13px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+
+/* ==========================================================
+   BOTÃO ENTRAR
+   ========================================================== */
+
+.btn-login {
+  width: 100%;
+
+  height: 53px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(90deg,
+      #075be4,
+      #0450c8);
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.btn-login:hover {
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 7px 16px rgba(2, 78, 198, 0.20);
+}
+
+
+.btn-login svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 2;
+}
+
+
+/* ==========================================================
+   DIVISOR
+   ========================================================== */
+
+.divider {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin:
+    15px 0;
+}
+
+
+.divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: #d6dde8;
+}
+
+
+.divider p {
+  color: #586580;
+
+  font-size: 13px;
+}
+
+
+/* ==========================================================
+   GOV.BR
+   ========================================================== */
+
+.btn-gov {
+  width: 100%;
+
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  border:
+    1px solid #aebbd0;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #0754ce;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+.btn-gov strong {
+  margin-left: 3px;
+
+  font-size: 24px;
+
+  letter-spacing: -4px;
+
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+
+.gov-icon {
+  position: relative;
+
+  width: 24px;
+  height: 21px;
+
+  display: inline-block;
+
+  margin-right: 4px;
+}
+
+
+.gov-icon span {
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 4px;
+}
+
+
+.gov-icon span:nth-child(1) {
+  left: 0;
+  top: 0;
+
+  background: var(--green);
+}
+
+
+.gov-icon span:nth-child(2) {
+  right: 2px;
+  top: 0;
+
+  background: var(--yellow);
+}
+
+
+.gov-icon span:nth-child(3) {
+  left: 5px;
+  bottom: 0;
+
+  background: var(--blue);
+}
+
+
+.gov-blue {
+  color: #1d63ca;
+}
+
+
+.gov-yellow {
+  color: #f7b718;
+}
+
+
+.gov-green {
+  color: #169c4d;
+}
+
+
+/* ==========================================================
+   CADASTRO
+   ========================================================== */
+
+.register-area {
+  margin-top: 15px;
+
+  text-align: center;
+
+  color: #64718d;
+
+  font-size: 13px;
+}
+
+
+.register-area a {
+  margin-left: 5px;
+
+  color: #0759d6;
+
+  text-decoration: none;
+
+  font-weight: 700;
+}
+
+
+/* ==========================================================
+   ERROS
+   ========================================================== */
+
+.error-message {
+  display: block;
+
+  min-height: 13px;
+
+  margin-top: 3px;
+
+  color: #d92d20;
+
+  font-size: 11px;
+}
+
+
+.input-error {
+  border-color:
+    #d92d20 !important;
+
+  background:
+    #fff8f8 !important;
+}
+
+
+.login-message {
+  display: none;
+
+  padding:
+    8px 10px;
+
+  margin-bottom: 10px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+}
+
+
+.login-message.success {
+  display: block;
+
+  color: #08783e;
+
+  background: #e9f8ef;
+
+  border:
+    1px solid #b6e4c8;
+}
+
+
+.login-message.error {
+  display: block;
+
+  color: #a12622;
+
+  background: #fff0ef;
+
+  border:
+    1px solid #f3c1be;
+}
+
+
+/* ==========================================================
+   MOBILE ESCONDIDO NO DESKTOP
+   ========================================================== */
+
+.mobile-illustration,
+.benefits-mobile {
+  display: none;
+}
+
+
+/* ==========================================================
+   RODAPÉ DESKTOP
+   ========================================================== */
+
+.main-footer {
+  width: 100%;
+
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding:
+    8px 70px;
+
+  color: white;
+
+  background:
+    linear-gradient(90deg,
+      #0754a5,
+      #003d8e);
+
+  font-size: 12px;
+}
+
+
+.footer-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+.footer-brand svg {
+  width: 23px;
+  height: 23px;
+
+  fill: none;
+
+  stroke: white;
+
+  stroke-width: 2;
+}
+
+
+.footer-links {
+  display: flex;
+
+  align-items: center;
+}
+
+
+.footer-links>* {
+  padding:
+    0 22px;
+}
+
+
+.footer-links>*+* {
+  border-left:
+    1px solid rgba(255, 255, 255, .65);
+}
+
+
+.footer-links a {
+  color: white;
+
+  text-decoration: none;
+}
+
+
+/* ==========================================================
+   DESKTOP
+   ========================================================== */
+
+@media (min-width: 769px) {
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+
+  body {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: auto;
+  }
+
+
+  .page-wrapper {
+    flex-shrink: 0;
+  }
+
+}
+
+
+/* ==========================================================
+   NOTEBOOKS / TELAS MÉDIAS
+   ========================================================== */
+
+@media (max-width: 1400px) and (min-width: 769px) {
+
+  .page-wrapper {
+    min-height: 660px;
+  }
+
+
+  .login-info {
+    grid-template-rows:
+      auto 1fr 125px;
+  }
+
+
+  .desktop-brand {
+    padding:
+      6px 20px 3px;
+  }
+
+
+  /*
+     Mantém a logo ainda grande
+     em notebook
+  */
+
+  .desktop-logo {
+    width: 410px;
+
+    height: 245px;
+
+    max-width: 76%;
+  }
+
+
+  .color-line {
+    width: 340px;
+
+    max-width: 63%;
+  }
+
+
+  .desktop-description {
+    margin-top: 7px;
+
+    font-size: 13px;
+  }
+
+
+  .desktop-illustration img {
+    width: 650px;
+
+    max-width: 94%;
+  }
+
+
+  .benefits-desktop {
+    height: 125px;
+
+    padding:
+      8px 18px;
+  }
+
+
+  .benefit-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+
+  .benefit-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+
+  .benefit-item h3 {
+    font-size: 13px;
+  }
+
+
+  .benefit-item p {
+    font-size: 8.5px;
+  }
+
+
+  .login-card {
+    width: 540px;
+
+    padding:
+      23px 36px;
+  }
+
+
+  .form-header {
+    margin-bottom: 14px;
+  }
+
+
+  .form-header h1 {
+    font-size: 27px;
+  }
+
+
+  .login-tabs {
+    margin-bottom: 14px;
+  }
+
+
+  .login-tab {
+    height: 43px;
+
+    font-size: 12px;
+  }
+
+
+  .form-group {
+    margin-bottom: 9px;
+  }
+
+
+  .input-wrapper input {
+    height: 46px;
+  }
+
+
+  .form-options {
+    margin-bottom: 11px;
+  }
+
+
+  .btn-login,
+  .btn-gov {
+    height: 47px;
+  }
+
+
+  .divider {
+    margin:
+      10px 0;
+  }
+
+
+  .register-area {
+    margin-top: 10px;
+  }
+
+}
+
+
+/* ==========================================================
+   TELAS COM ALTURA BAIXA
+   ========================================================== */
+
+@media (max-height: 760px) and (min-width: 769px) {
+
+  .page-wrapper {
+    height: calc(100vh - 10px);
+
+    min-height: 620px;
+
+    margin:
+      5px auto;
+  }
+
+
+  .login-info {
+    grid-template-rows:
+      auto 1fr 105px;
+  }
+
+
+  .desktop-brand {
+    padding-top: 3px;
+  }
+
+
+  .desktop-logo {
+    width: 350px;
+
+    height: 200px;
+  }
+
+
+  .color-line {
+    width: 290px;
+  }
+
+
+  .desktop-description {
+    margin-top: 5px;
+
+    font-size: 11px;
+  }
+
+
+  .benefits-desktop {
+    height: 105px;
+  }
+
+
+  .benefit-icon {
+    width: 32px;
+    height: 32px;
+
+    margin-bottom: 3px;
+  }
+
+
+  .benefit-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .benefit-item h3 {
+    font-size: 12px;
+
+    margin-bottom: 2px;
+  }
+
+
+  .benefit-item p {
+    font-size: 7.5px;
+  }
+
+
+  .login-card {
+    padding:
+      15px 32px;
+  }
+
+
+  .form-header {
+    margin-bottom: 8px;
+  }
+
+
+  .form-header h1 {
+    font-size: 24px;
+  }
+
+
+  .form-header p {
+    font-size: 12px;
+  }
+
+
+  .login-tabs {
+    margin-bottom: 8px;
+  }
+
+
+  .login-tab {
+    height: 38px;
+  }
+
+
+  .form-group {
+    margin-bottom: 5px;
+  }
+
+
+  .input-wrapper input {
+    height: 41px;
+  }
+
+
+  .form-options {
+    margin-bottom: 7px;
+  }
+
+
+  .btn-login,
+  .btn-gov {
+    height: 42px;
+  }
+
+
+  .divider {
+    margin:
+      7px 0;
+  }
+
+
+  .register-area {
+    margin-top: 7px;
+  }
+
+}
+
+
+/* ==========================================================
+   MOBILE / TABLET VERTICAL
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+  html,
+  body {
+    height: auto;
+
+    min-height: 100vh;
+  }
+
+
+  body {
+    display: block;
+
+    overflow-y: auto;
+
+    background: white;
+  }
+
+
+  .page-wrapper {
+    width: 100%;
+
+    max-width: none;
+
+    height: auto;
+
+    max-height: none;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    overflow: hidden;
+  }
+
+
+  .login-container {
+    width: 100%;
+
+    height: auto;
+
+    display: flex;
+
+    flex-direction: column;
+  }
+
+
+  .login-info {
+    display: none;
+  }
+
+
+  /* ========================================================
+     FORMULÁRIO MOBILE
+     ======================================================== */
+
+  .login-form-area {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    padding: 0;
+
+    background:
+      linear-gradient(180deg,
+        #f6faff,
+        #ffffff 65%,
+        #f3f9ff);
+  }
+
+
+  .login-card {
+    width: 100%;
+
+    max-width: none;
+
+    padding:
+      25px 28px 0;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    box-shadow: none;
+  }
+
+
+  /* ========================================================
+     LOGO MOBILE
+     ======================================================== */
+
+  .mobile-brand {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+  }
+
+
+  .mobile-logo {
+    display: block;
+
+    width: 300px;
+
+    max-width: 76%;
+
+    height: auto;
+
+    object-fit: contain;
+  }
+
+
+  .mobile-line {
+    width: 230px;
+
+    max-width: 55%;
+
+    height: 4px;
+
+    margin-top: 5px;
+  }
+
+
+  /* ========================================================
+     CABEÇALHO MOBILE
+     ======================================================== */
+
+  .form-header {
+    margin-bottom: 17px;
+  }
+
+
+  .form-header h1 {
+    font-size: 29px;
+
+    margin-bottom: 7px;
+  }
+
+
+  .form-header p {
+    font-size: 14px;
+  }
+
+
+  /* ========================================================
+     ABAS MOBILE
+     ======================================================== */
+
+  .login-tabs {
+    margin-bottom: 20px;
+  }
+
+
+  .login-tab {
+    height: 53px;
+
+    gap: 7px;
+
+    font-size: 13px;
+  }
+
+
+  .login-tab svg {
+    width: 21px;
+    height: 21px;
+  }
+
+
+  /* ========================================================
+     CAMPOS MOBILE
+     ======================================================== */
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+
+  .form-group>label {
+    font-size: 14px;
+  }
+
+
+  .input-wrapper input {
+    height: 55px;
+
+    font-size: 15px;
+  }
+
+
+  .form-options {
+    margin:
+      3px 0 18px;
+  }
+
+
+  .remember,
+  .form-options a {
+    font-size: 12px;
+  }
+
+
+  .btn-login,
+  .btn-gov {
+    height: 55px;
+  }
+
+
+  .btn-login {
+    font-size: 16px;
+  }
+
+
+  .divider {
+    margin:
+      17px 0;
+  }
+
+
+  .register-area {
+    margin-top: 17px;
+
+    font-size: 13px;
+  }
+
+
+  /* ========================================================
+     ILUSTRAÇÃO MOBILE
+     ======================================================== */
+
+  .mobile-illustration {
+    display: flex;
+
+    width:
+      calc(100% + 56px);
+
+    height: 180px;
+
+    margin-left: -28px;
+
+    margin-top: 5px;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
+
+  .mobile-illustration img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    object-position:
+      bottom center;
+  }
+
+
+  /* ========================================================
+     BENEFÍCIOS MOBILE
+     ======================================================== */
+
+  .benefits-mobile {
+    width: 100%;
+
+    min-height: 160px;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(4, 1fr);
+
+    align-items: center;
+
+    padding:
+      15px 5px;
+
+    color: white;
+
+    background:
+      linear-gradient(90deg,
+        #0753a3,
+        #003a84);
+  }
+
+
+  .mobile-benefit {
+    position: relative;
+
+    text-align: center;
+
+    padding:
+      0 4px;
+  }
+
+
+  .mobile-benefit:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 20%;
+    right: 0;
+
+    width: 1px;
+
+    height: 70%;
+
+    background:
+      rgba(255, 255, 255, .45);
+  }
+
+
+  .mobile-benefit .benefit-icon {
+    width: 39px;
+    height: 39px;
+
+    margin-bottom: 6px;
+  }
+
+
+  .mobile-benefit .benefit-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+
+  .mobile-benefit h3 {
+    margin-bottom: 4px;
+
+    font-size: 13px;
+  }
+
+
+  .mobile-benefit p {
+    font-size: 8.5px;
+
+    line-height: 1.35;
+  }
+
+
+  /* ========================================================
+     RODAPÉ MOBILE
+     ======================================================== */
+
+  .main-footer {
+    width: 100%;
+
+    height: auto;
+
+    min-height: 65px;
+
+    display: flex;
+
+    justify-content: center;
+
+    padding:
+      14px 12px;
+
+    text-align: center;
+  }
+
+
+  .footer-links {
+    display: none;
+  }
+
+
+  .footer-brand {
+    justify-content: center;
+
+    font-size: 11px;
+  }
+
+}
+
+
+/* ==========================================================
+   SMARTPHONES ATÉ 430PX
+   ========================================================== */
+
+@media (max-width: 430px) {
+
+  .login-card {
+    padding:
+      20px 18px 0;
+  }
+
+
+  .mobile-logo {
+    width: 270px;
+
+    max-width: 74%;
+  }
+
+
+  .form-header h1 {
+    font-size: 25px;
+  }
+
+
+  .form-header p {
+    font-size: 13px;
+  }
+
+
+  .login-tab {
+    height: 48px;
+
+    padding:
+      0 2px;
+
+    font-size: 11px;
+  }
+
+
+  .login-tab svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .input-wrapper input {
+    height: 51px;
+
+    font-size: 14px;
+  }
+
+
+  .form-options {
+    gap: 8px;
+
+    margin-bottom: 15px;
+  }
+
+
+  .remember,
+  .form-options a {
+    font-size: 11px;
+  }
+
+
+  .btn-login,
+  .btn-gov {
+    height: 51px;
+  }
+
+
+  .divider {
+    margin:
+      14px 0;
+  }
+
+
+  .mobile-illustration {
+    width:
+      calc(100% + 36px);
+
+    margin-left: -18px;
+
+    height: 160px;
+  }
+
+
+  .benefits-mobile {
+    min-height: 145px;
+
+    padding:
+      12px 2px;
+  }
+
+
+  .mobile-benefit {
+    padding:
+      0 2px;
+  }
+
+
+  .mobile-benefit .benefit-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+
+  .mobile-benefit h3 {
+    font-size: 12px;
+  }
+
+
+  .mobile-benefit p {
+    font-size: 7.5px;
+  }
+
+}
+
+
+/* ==========================================================
+   SMARTPHONES ATÉ 360PX
+   ========================================================== */
+
+@media (max-width: 360px) {
+
+  .login-card {
+    padding-left: 14px;
+
+    padding-right: 14px;
+  }
+
+
+  .mobile-logo {
+    width: 235px;
+  }
+
+
+  .login-tab {
+    font-size: 10px;
+  }
+
+
+  .form-options {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 9px;
+  }
+
+
+  .mobile-benefit p {
+    font-size: 7px;
+  }
+
+}
